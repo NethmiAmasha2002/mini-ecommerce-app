@@ -90,18 +90,19 @@ Splash Screen → Login Screen (mock auth or "Continue as Guest") → Home (bott
 This project was built with the assistance of **Claude** (Anthropic).
 
 **What AI assisted with:**
-- Generating the initial project structure and boilerplate for models, providers, and screens
-- Drafting widget code for all 5 screens based on a specified folder structure and state management approach
-- Writing this README
+- Drafting the initial boilerplate for models, providers, and widget code across the 5 screens, based on a folder structure and state management approach I specified
+- Suggesting Provider over alternatives (Riverpod/GetX) when I asked for a recommendation, with a brief rationale
+- First draft of this README
 
-**What I did / understand:**
-- Chose Provider as the state management approach and can explain why (centralized ChangeNotifier classes for cart, product filtering, and theme state, consumed via `Consumer`/`context.read` throughout the widget tree)
-- Reviewed, tested, and adjusted the generated code so I can explain how the cart quantity logic, search/filter logic, and theme persistence work
-- Verified the folder structure and file responsibilities make sense (models vs providers vs screens vs widgets)
-- Can walk through and modify any screen or provider if asked
+**What I did myself:**
+- Set up the entire local development environment from scratch: installed Flutter, configured Android Studio, created and booted the Android emulator (Pixel 7, API 34), and got `flutter devices` recognizing it
+- Ran `flutter create .` to generate the missing platform projects (android/ios/web/windows) and got the app actually building and running on the emulator
+- Debugged real issues as they came up — e.g. a network image not refreshing after editing mock data (resolved with a hot restart instead of hot reload), and a Git `remote add` error from an earlier placeholder URL
+- Reviewed and tested all the generated code end-to-end: the cart's add/remove/increment/decrement logic, the search + category filter logic in `ProductProvider`, and how dark mode preference is persisted via `shared_preferences` in `ThemeProvider`
+- Verified the folder structure and file responsibilities (models vs providers vs screens vs widgets) and can explain why each piece is organized where it is
+- Initialized the Git repository, made the commits, pushed to GitHub, and built the release APK
 
 ## Notes
 
-- All images are placeholder images loaded from `picsum.photos` since there's no backend/asset pipeline required for this task.
 - Login is intentionally mock-only — any non-empty valid-looking email/password "succeeds," and a "Continue as Guest" option is also provided.
 - Checkout in the Cart screen is also mock — it shows a confirmation dialog and clears the cart, simulating order placement without a real payment flow.
